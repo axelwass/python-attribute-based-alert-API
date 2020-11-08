@@ -1,0 +1,5 @@
+twilio==6.47.0
+Flask
+flask-swagger
+flask-json-schema
+tinydb
