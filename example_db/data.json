@@ -1,0 +1,69 @@
+{
+	"users": {
+		"1": {
+			"attributes": {
+				"projects": ["FellowshipOfTheRing", "Other"],
+				"role": "Lead"
+			},
+			"username": "fbagins",
+			"contact": {
+				"phone": "<your_phone>"
+			}
+		}
+	},
+	"alerts": {
+		"1": {
+			"id": "small_enemy",
+			"attributes": {
+				"project": "FellowshipOfTheRing",
+				"severity": 11
+			},
+			"template": "You have been pinged by {{alert.project}} because of {{alert.reason}}"
+		},
+		"2": {
+			"id": "big_enemy",
+			"attributes": {
+				"project": "FellowshipOfTheRing",
+				"severity": 70
+			},
+			"template": "You have been pinged by {{alert.project}} because of {{alert.reason}}"
+		}
+	},
+	"rules": {
+		"1": {
+			"ID": "ProjectLead",
+			"conditions": [{
+					"first": {
+						"object": "User",
+						"value": "projects"
+					},
+					"op": "contains",
+					"second": {
+						"object": "Alert",
+						"value": "project"
+					}
+				}, {
+					"first": {
+						"object": "User",
+						"value": "role"
+					},
+					"op": "==",
+					"second": {
+						"object": "Value",
+						"value": "Lead"
+					}
+				}
+			]
+		}
+	},
+	"channels": {
+		"1": {
+			"min_severity": 0,
+			"channel": "TwilioSmsChannel"
+		},
+		"2": {
+			"min_severity": 50,
+			"channel": "TwilioTtsChannel"
+		}
+	}
+}

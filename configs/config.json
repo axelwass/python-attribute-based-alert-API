@@ -1,0 +1,12 @@
+{
+	"db":
+	{
+		"path": "example_db/data.json"
+	},
+	"twilio":
+	{
+		"sid": "<your_sid>",
+		"token": "<your_token>",
+		"from_phone": "<your_phone>"
+	}
+}
