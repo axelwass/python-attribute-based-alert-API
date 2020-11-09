@@ -4,4 +4,3 @@ flask-json-schema
 tinydb
 python-json-config 
 jinja2
-flasgger
